@@ -1,0 +1,2 @@
+day 2   -react frangments component rendering etc..
+day 3   -npm i bootstrap@5.3.3(boostrap installation)
