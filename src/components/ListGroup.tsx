@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ListGroup = () => {
+interface Props {
+  items: string[];
+  foods: string[];
+}
+
+const ListGroup = ({ items, foods }: Props) => {
   //for render list we use ARRAY
-  const items: string[] = ["Colombo", "Kandy", "Galle", "Hambantota", "Matara"];
+
   // in type script to define array type we have to use   //string []
 
-  const foods: string[] = [];
+  //   const handleClick = (event: React.MouseEvent) => {
+  //     console.log(event);
+  //   };
+
+  //let selectedIndex = 0;
+
+  //Hooks
+  //useState hooks
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [foodIndex, setFood] = useState(0); ///when setFood(index)   function called indexx value is assigned to foodIndex via useStatevalue
+
   return (
     //instead of  div tag react fragament is good    //1 milsecond for this component
     //if there were 1000 components there will be 1 sec lag
@@ -25,9 +41,29 @@ const ListGroup = () => {
         {/* map is function isisde map fuction we use arrow function */}
 
         {/* correct way to map function */}
+        {/* onclick event handler */}
         {items.map((item, index) => {
           return (
-            <li key={index} className="list-group-item">
+            <li
+              key={index}
+              className={
+                selectedIndex === index
+                  ? "list-group-item active "
+                  : "list-group-item"
+              }
+              onClick={() => {
+                setSelectedIndex(index);
+                console.log(selectedIndex);
+              }}
+              //   event is default for eevent
+
+              //instead of implementing arrow function hwere we did in outside of return
+
+              //why??
+              //   onClick={(event) => {
+              //     console.log(event);
+              //   }}
+            >
               {item}
             </li>
           );
@@ -35,7 +71,17 @@ const ListGroup = () => {
 
         {foods.map((food, index) => {
           return (
-            <li key={index} className="List-group-item">
+            <li
+              key={index}
+              className={
+                foodIndex === index
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+              onClick={() => {
+                setFood(index);
+              }}
+            >
               {food}
             </li>
           );
