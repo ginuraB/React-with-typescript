@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import "./ListGroup.css";
 
 interface Props {
   items: string[];
   foods: string[];
+  //passing functions through props
+  // onSelectedItem: (item: string) => void;
+  // onSelectedFood: (food: string) => void;
 }
 
 const ListGroup = ({ items, foods }: Props) => {
@@ -53,7 +57,7 @@ const ListGroup = ({ items, foods }: Props) => {
               }
               onClick={() => {
                 setSelectedIndex(index);
-                console.log(selectedIndex);
+                // onSelectedItem(item);
               }}
               //   event is default for eevent
 
@@ -80,6 +84,7 @@ const ListGroup = ({ items, foods }: Props) => {
               }
               onClick={() => {
                 setFood(index);
+                // onSelectedFood(food);
               }}
             >
               {food}
