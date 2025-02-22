@@ -37,12 +37,24 @@ function App() {
   const handleChangeCity = () => {
     setPerson({ ...person, address: { ...person.address, city: "Colombo" } });
   };
+
+  const handleChangeStreetName = () => {
+    setPerson({
+      ...person,
+      address: {
+        ...person.address,
+        street: { ...person.address.street, name: "Galle Road" },
+      },
+    });
+  };
   return (
     <>
       <h1>{person.name.firstName}</h1>
       <h2>{person.address.city}</h2>
+      <h3>{person.address.street.name}</h3>
       <button onClick={handleClickMe}>Click me </button>
       <button onClick={handleChangeCity}>ChnageCitry</button>
+      <button onClick={handleChangeStreetName}>Chnage Street Name</button>
     </>
   );
 }
